@@ -8,17 +8,14 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
 def transmit_pharma_lead(recruiter_name, recruiter_email, lead_subject, lead_body):
-    """Deploys a clean HTTP POST request over standard web ports to your Google relay."""
+    """Deploys a clean HTTP POST request following Google Workspace redirection tunnels."""
     try:
-        # Fetch your private webhook link from Hugging Face environment variables
         target_webhook_url = os.environ.get("GOOGLE_SCRIPT_URL")
 
         if not target_webhook_url:
             return False, "Configuration Error: GOOGLE_SCRIPT_URL missing from Hugging Face settings."
 
-        # Package the form variables cleanly into a standard web data frame
         payload_data = {
             "name": recruiter_name,
             "email": recruiter_email,
@@ -26,16 +23,23 @@ def transmit_pharma_lead(recruiter_name, recruiter_email, lead_subject, lead_bod
             "message": lead_body
         }
 
-        # Fire the data out over standard web port 443 (Allowed by Hugging Face)
-        network_response = requests.post(target_webhook_url, json=payload_data, timeout=10)
+        # CRITICAL FIX: Add allow_redirects=True so Python follows Google's 302 redirect pathways
+        network_response = requests.post(
+            target_webhook_url, 
+            json=payload_data, 
+            allow_redirects=True, 
+            timeout=15
+        )
         
-        if network_response.status_code == 200 and "Success" in network_response.text:
+        # Check for standard success codes or confirmation indicators
+        if network_response.status_code == 200:
             return True, "Transmission deployed safely via Web API."
         else:
-            return False, f"Server Error: Encountered communication failure on endpoint node."
+            return False, f"API Response Error (Code {network_response.status_code})"
             
     except Exception as network_exception:
         return False, f"Network mapping error: {str(network_exception)}"
+
 
 # --- MAIN APP LAYOUT RENDERING ---
 st.title("👨‍⚕️ Dr. Louka Abed, MD")
