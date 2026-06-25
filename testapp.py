@@ -10,19 +10,28 @@ another_page = st.Page("analytics.py", title="test", icon="📊")
 third_page = st.Page("hellostreamlit.py", title="test", icon="👋")
 fourth_page = st.Page('sas.py', title='SAS Experience', icon='👋')
 
-# --- BACKEND SAS CONFIGURATION ENGINE (Bypassing Hugging Face EOF Drops) ---
+# --- BACKEND SAS CONFIGURATION ENGINE ---
 JAVA_PATH = "/usr/bin/java"
-ODA_SERVER = "://sas.com"
+ODA_SERVER = "odaws01-usw2-2.oda.sas.com"
 
-# Added javaoptions to stop immediate EOF drops caused by strict SSL/TLS handshake failures
+# Safely extract secrets first
+sas_user_credential = st.secrets["SAS_USER"]
+
+if "SAS_PASSWORD" in st.secrets:
+    sas_pass_credential = st.secrets["SAS_PASSWORD"]
+else:
+    sas_pass_credential = st.secrets["SAS_PASS"]
+
+# FIX: Injected 'user' and 'pw' explicitly into the connection definition dictionary.
+# Dropped 'authkey' entirely to prevent the Java sub-process from triggering a prompt loop.
 config_content = f"""
 SAS_config_names = ['oda']
 oda = {{
     'java': '{JAVA_PATH}',
-    'javaoptions': '-Djsse.enableSNIExtension=false',
     'iomhost': '{ODA_SERVER}',
     'url': 'https://{ODA_SERVER}:443',
-    'authkey': 'oda_auth',
+    'user': '{sas_user_credential}',
+    'pw': '{sas_pass_credential}',
     'encoding': 'utf-8',
     'omr': False
 }}
@@ -32,19 +41,15 @@ config_file_path = os.path.abspath("sascfg_personal.py")
 with open(config_file_path, "w") as f:
     f.write(config_content)
 
-# Pass credentials securely from Hugging Face secrets into SASPy runtime variables
+# Also expose variables to the broader environment layer for fallback redundancy
 os.environ["_SAS_SERVER_"] = ODA_SERVER
-os.environ["_SAS_USER_"] = st.secrets["SAS_USER"]
-
-if "SAS_PASSWORD" in st.secrets:
-    os.environ["_SAS_PASS_"] = st.secrets["SAS_PASSWORD"]
-else:
-    os.environ["_SAS_PASS_"] = st.secrets["SAS_PASS"]
+os.environ["_SAS_USER_"] = sas_user_credential
+os.environ["_SAS_PASS_"] = sas_pass_credential
 
 @st.cache_resource
 def get_sas_session():
     try:
-        # Establish connection using configuration file and HTTP protocol proxy
+        # Establish connection using explicit parameters
         sas = saspy.SASsession(cfgfile=config_file_path, cfgname="oda")
         return sas
     except Exception as e:
