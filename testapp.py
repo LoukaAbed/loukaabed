@@ -2,10 +2,9 @@ import os
 import streamlit as st
 import saspy
 
-# 1. Page configurations must always be the very first Streamlit command executed
 st.set_page_config(page_title="My App")
 
-# --- NAVIGATION SETUP ---
+# Define your pages
 home_page = st.Page("hello.py", title="Home", icon="🏠")
 another_page = st.Page("analytics.py", title="test", icon="📊")
 third_page = st.Page("hellostreamlit.py", title="test", icon="👋")
@@ -15,24 +14,14 @@ fourth_page = st.Page('sas.py', title='SAS Experience', icon='👋')
 JAVA_PATH = "/usr/bin/java"
 ODA_SERVER = "odaws01-usw2-2.oda.sas.com"
 
-# Safely extract Hugging Face Space secrets
-try:
-    sas_user = st.secrets["SAS_USER"]
-    sas_pass = st.secrets["SAS_PASS"]  # Aligned to standard secret naming conventions
-except KeyError as e:
-    st.sidebar.error(f"Missing Hugging Face Secret: {e}")
-    sas_user = None
-    sas_pass = None
-
-# Inject credentials directly into the string dictionary to bypass EOF prompt crashes completely
+# Network Fix: Added direct HTTPS URL configuration to bypass Hugging Face firewall port restrictions
 config_content = f"""
 SAS_config_names = ['oda']
 oda = {{
     'java': '{JAVA_PATH}',
     'iomhost': '{ODA_SERVER}',
     'url': 'https://{ODA_SERVER}:443',
-    'user': '{sas_user}',
-    'pw': '{sas_pass}',
+    'authkey': 'oda_auth',
     'encoding': 'utf-8',
     'omr': False
 }}
@@ -42,12 +31,20 @@ config_file_path = os.path.abspath("sascfg_personal.py")
 with open(config_file_path, "w") as f:
     f.write(config_content)
 
+# Pass credentials securely from Hugging Face secrets into SASPy runtime variables
+os.environ["_SAS_SERVER_"] = ODA_SERVER
+os.environ["_SAS_USER_"] = st.secrets["SAS_USER"]
+
+# FIX: Dynamic fallback loop to ensure the secret key is found regardless of naming choice
+if "SAS_PASSWORD" in st.secrets:
+    os.environ["_SAS_PASS_"] = st.secrets["SAS_PASSWORD"]
+else:
+    os.environ["_SAS_PASS_"] = st.secrets["SAS_PASS"]
+
 @st.cache_resource
 def get_sas_session():
-    if not sas_user or not sas_pass:
-        return None
     try:
-        # Establish connection using the dynamically generated configuration file
+        # Establish connection using configuration file and HTTP protocol proxy
         sas = saspy.SASsession(cfgfile=config_file_path, cfgname="oda")
         return sas
     except Exception as e:
@@ -75,6 +72,6 @@ else:
     st.error("❌ Failed to initiate underlying SAS cloud connection. Check Hugging Face Secrets setup logs.")
     st.info("💡 Look closely at your application's left sidebar to inspect the direct error code output from SASPy.")
 
-# Group all defined pages and initialize navigation 
-nav = st.navigation([home_page, another_page, third_page, fourth_page])
+# Group pages and initialize navigation 
+nav = st.navigation([home_page, third_page, fourth_page])
 nav.run()
