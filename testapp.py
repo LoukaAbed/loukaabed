@@ -33,7 +33,15 @@ os.environ["_SAS_SERVER_"] = ODA_SERVER
 os.environ["_SAS_USER_"] = st.secrets["SAS_USER"]
 os.environ["_SAS_PASS_"] = st.secrets["SAS_PASSWORD"]
 
-@st.cache_resource
+@st.cache_resource  # <-- 1. Guard: Checks memory. If connection exists, skips the code below.
+def get_sas_session():
+    try:
+        # <-- 2. Worker: Only runs ONCE to build the initial cloud tunnel.
+        sas = saspy.SASsession(cfgfile=config_file_path, cfgname="oda")
+        return sas
+    except Exception as e:
+        return None
+
 def get_sas_session():
     try:
         sas = saspy.SASsession(cfgfile=config_file_path, cfgname="oda")
