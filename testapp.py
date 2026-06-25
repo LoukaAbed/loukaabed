@@ -29,7 +29,7 @@ config_file_path = os.path.abspath("sascfg_personal.py")
 with open(config_file_path, "w") as f:
     f.write(config_content)
 
-os.environ["_SAS_SERVER_"] = ODA_SERVER
+os.environ["_SAS_SERVER_"] = "odaws01-usw2-2.oda.sas.com"
 os.environ["_SAS_USER_"] = st.secrets["SAS_USER"]
 os.environ["_SAS_PASS_"] = st.secrets["SAS_PASSWORD"]
 
