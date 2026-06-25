@@ -12,7 +12,7 @@ fourth_page = st.Page('sas.py', title='SAS Experience', icon='👋')
 
 # --- BACKEND SAS CONFIGURATION ENGINE ---
 JAVA_PATH = "/usr/bin/java"
-ODA_SERVER = "://sas.com" 
+ODA_SERVER = "odaws01-usw2-2.oda.sas.com"
 
 config_content = f"""
 SAS_config_names = ['oda']
