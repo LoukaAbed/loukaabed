@@ -54,8 +54,10 @@ with editor_tab:
     # Render the full interactive SAS Studio platform application environment
     sas_studio_url = "https://sas.com"
     
+    # FIXED: Replaced 'url' with 'src' to match Streamlit's official parameter definition
     st.components.v1.iframe(
-        url=sas_studio_url, 
+        src=sas_studio_url, 
         height=850, 
         scrolling=True
     )
+
