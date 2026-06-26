@@ -1,88 +1,61 @@
 import streamlit as st
 import pandas as pd
 
-st.title("📊 Customized SAS Analytics Dashboard")
-st.write("Filter, edit, and format your pre-compiled SAS portfolio datasets live.")
+st.set_page_config(layout="wide")
 
-try:
-    # Load the base SAS dataset from your repository
-    df = pd.read_csv("portfolio_summary.csv")
-    st.success("✅ SAS Dataset synchronized successfully!")
-    st.markdown("---")
+st.title("💻 Advanced SAS Studio Collaborative Sandbox")
+st.write("Upload custom files or execute code blocks directly inside the embedded SAS processing engine.")
 
-    # ==========================================
-    # 1. CUSTOMIZE CODE INPUTS & FILTERS
-    # ==========================================
-    st.subheader("🛠️ Workspace Controls")
+# Create interface sidebars/tabs to manage data distribution
+upload_tab, editor_tab = st.tabs(["📁 Local Data Stage", "🖥️ Active SAS Studio Interface"])
+
+with upload_tab:
+    st.subheader("Bring Your Own Data File")
+    st.write("Want to work on a custom file? Upload it below to inspect its variables before sending it to SAS.")
     
-    # Use layout columns to place input filters side-by-side
-    col1, col2 = st.columns(2)
-    with col1:
-        selected_make = st.selectbox("Select Manufacturer:", sorted(df['Make'].unique()))
-    with col2:
-        # Numeric input slider to filter by baseline performance thresholds
-        min_horsepower = st.slider("Minimum Horsepower Threshold:", 
-                                   int(df['Horsepower'].min()), 
-                                   int(df['Horsepower'].max()), 
-                                   int(df['Horsepower'].mean()))
-
-    # Apply the user inputs directly to filter the SAS DataFrame
-    filtered_df = df[(df['Make'] == selected_make) & (df['Horsepower'] >= min_horsepower)]
-
-    # ==========================================
-    # 2. CUSTOMIZE OUTPUT DATA GRID & TABLES
-    # ==========================================
-    st.subheader(f"📈 Formatted Metrics Matrix: {selected_make}")
+    uploaded_file = st.file_uploader("Upload a CSV or Excel dataset:", type=["csv", "xlsx"])
     
-    if not filtered_df.empty:
-        # Use st.dataframe along with column_config to explicitly format data fields
-        st.dataframe(
-            filtered_df,
-            use_container_width=True, # Forces table to fit screen neatly
-            hide_index=True,          # Removes the messy default row index numbers
-            column_config={
-                "Make": st.column_config.TextColumn("Brand Title"),
-                "Type": st.column_config.TextColumn("Vehicle Category"),
-                "Horsepower": st.column_config.NumberColumn("Engine HP", format="%d HP"),
-                "MSRP": st.column_config.NumberColumn("Market Price (USD)", format="$%,.2f"),
-                "MPG_City": st.column_config.NumberColumn("City Economy", format="%d MPG"),
-                "MPG_Highway": st.column_config.NumberColumn("Highway Economy", format="%d MPG"),
-            }
-        )
-        
-        # ==========================================
-        # 3. ADVANCED: ADD AN EDITABLE DATA INPUT TABLE
-        # ==========================================
-        st.markdown("---")
-        st.subheader("📝 Interactive Sandbox Data Editor")
-        st.write("Double-click cells below to change values directly in your browser session:")
-        
-        # st.data_editor creates a fully editable copy of your table
-        edited_df = st.data_editor(
-            filtered_df, 
-            use_container_width=True,
-            hide_index=True,
-            key="sas_data_editor"
-        )
-        
-        # ==========================================
-        # 4. CUSTOMIZE GRAPHICAL OUTPUT RESULTS
-        # ==========================================
-        st.markdown("---")
-        st.subheader("📊 Visual Performance Charts")
-        
-        tab1, tab2 = st.tabs(["Engine Power Matrix", "Fuel Efficiency Curve"])
-        with tab1:
-            # Render a clean bar chart mapping the edited dataset points
-            st.bar_chart(edited_df, x="Type", y="MSRP", color="#0379ce")
-        with tab2:
-            # Render a line chart comparing city vs highway metrics
-            st.line_chart(edited_df, x="Type", y=["MPG_City", "MPG_Highway"])
+    if uploaded_file is not None:
+        try:
+            # Parse the user file locally in Python for immediate inspection
+            if uploaded_file.name.endswith('.csv'):
+                user_df = pd.read_csv(uploaded_file)
+            else:
+                user_df = pd.read_excel(uploaded_file)
+                
+            st.success(f"Successfully processed '{uploaded_file.name}' locally!")
             
-    else:
-        st.warning("No data points found matching your current filter criteria thresholds.")
+            # Show a data preview so they can confirm column names
+            st.dataframe(user_df.head(5), use_container_width=True)
+            
+            # Provide explicitly generated copy-paste SAS snippet templates based on their file name
+            st.info("💡 **Next Step to Analyze This in SAS:**")
+            st.markdown(f"""
+            1. Look at the **SAS Studio Interface** tab.
+            2. Upload your `{uploaded_file.name}` file using the sidebar **Upload** icon.
+            3. Copy and paste the following snippet into your code window to instantly process it:
+            """)
+            
+            sas_template_code = f"""/* Copy-Paste Code Snippet Template */
+proc import datafile="~/{uploaded_file.name}" 
+    out=work.my_custom_data
+    dbms={"CSV" if uploaded_file.name.endswith(".csv") else "XLSX"} replace;
+    getnames=yes;
+run;
+
+proc contents data=work.my_custom_data; 
+run;"""
+            st.code(sas_template_code, language="sas")
+            
+        except Exception as e:
+            st.error(f"Error structuring data preview: {e}")
+
+with editor_tab:
+    # Render the full interactive SAS Studio platform application environment
+    sas_studio_url = "https://sas.com"
     
-except FileNotFoundError:
-    st.error("❌ The data file 'portfolio_summary.csv' could not be found.")
-except Exception as e:
-    st.error(f"An unexpected data parsing error occurred: {e}")
+    st.components.v1.iframe(
+        url=sas_studio_url, 
+        height=850, 
+        scrolling=True
+    )
