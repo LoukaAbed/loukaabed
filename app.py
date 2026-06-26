@@ -8,5 +8,5 @@ another_page = st.Page("analytics.py", title="Analytics", icon="📊")
 third_page = st.Page("hellostreamlit.py", title="Hello Streamlit", icon="👋")
 
 # Run navigation without executing any background connection logic here
-nav = st.navigation([home_page, another_page, third_page])
+nav = st.navigation([home_page, another_page])
 nav.run()
