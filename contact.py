@@ -81,9 +81,11 @@ st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D")
 st.markdown(
     """International Medical Graduate (MD) combining clinical and biochemistry domain expertise 
 with MS in Data Science and Mathematics foundations to validate, audit, model, and extract AI 
-insights from complex healthcare data streams to accelerate novel drug discovery and build 
-predictive translational medicine pipelines."""
+insights—accelerating novel drug discovery and building predictive translational medicine 
+pipelines through a systems approach that integrates complex healthcare data streams, 
+high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures."""
 )
+
 
 st.divider()
 
