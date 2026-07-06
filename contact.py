@@ -51,11 +51,13 @@ st.title("Louka Abed")
 st.subheader("Clinical Data Scientist & AI Translational Medicine")
 
 # three liner summary
-st.write(
-    """"International Medical Graduate (MD) combining clinical and biochemistry domain expertise with MS in Data Science 
-    and Mathematics foundations to validate, audit, model, and extract AI insights from complex healthcare data streams 
-    to accelerate novel drug discovery and build predictive translational medicine pipelines."""
+st.markdown(
+    """International Medical Graduate (MD) combining clinical and biochemistry domain expertise 
+with MS in Data Science and Mathematics foundations to validate, audit, model, and extract AI 
+insights from complex healthcare data streams to accelerate novel drug discovery and build 
+predictive translational medicine pipelines."""
 )
+
 
 st.divider()
 
