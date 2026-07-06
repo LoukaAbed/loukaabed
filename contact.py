@@ -14,19 +14,19 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    /* 1. remove 200MB label */
+    /* 1. Target the correct updated dropzone text container wrapper to remove 200MB label */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div > small {
         display: none !important;
     }
     
-    /* 2. Target secondary structural fallback label wrappers if present */
+    /* 2. Target the secondary structural fallback label wrappers if present */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div > span {
         display: none !important;
     }
     
     /* 3. Inject your exact, accurate system limit smoothly in its place */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div::after {
-        content: "Limit Upload Size 25MB";
+        content: "Limit 25MB cumulative";
         display: block;
         font-size: 0.8rem;
         color: #666666;
@@ -74,22 +74,18 @@ def contact(name, email, subject, body, attachments_list=None):
         )
 
 
-# --- MAIN APP LAYOUT (FIXED CENTERING) ---
-# 1. Native Centered Title
-st.markdown("# :center[Louka Abed]")
+# --- MAIN APP LAYOUT ---
+st.title("Louka Abed")
+st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D")
 
-# 2. Native Centered Subheader (using H3 equivalent markdown)
-st.markdown("### :center[Clinical Data Scientist | AI Translational Medicine & Pharma R&D]")
-
-# 3. Native Centered Abstract Paragraph (using native line breaks instead of HTML)
 st.markdown(
-    """
-    :center[International Medical Graduate (MD) combining clinical and biochemistry domain expertise with MS in Data Science  
-    and Mathematics foundations to validate, audit, model, and extract AI insights—accelerating novel drug discovery  
-    and building predictive translational medicine pipelines through a systems approach that integrates complex  
-    healthcare data streams, high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.]
-    """
+    """International Medical Graduate (MD) combining clinical and biochemistry domain expertise 
+with MS in Data Science and Mathematics foundations to validate, audit, model, and extract AI 
+insights—accelerating novel drug discovery and building predictive translational medicine 
+pipelines through a systems approach that integrates complex healthcare data streams, 
+high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures."""
 )
+
 
 st.divider()
 
