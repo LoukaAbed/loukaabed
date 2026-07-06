@@ -10,23 +10,23 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# --- CORRECT INACCURATE 200MB DISPLAY  on streamlit attachment button---
+# --- CSS INJECTION TO CORRECT THE INACCURATE 200MB DISPLAY  on streamlit attachment button---
 st.markdown(
     """
     <style>
-    /* 1. Target container wrapper remove 200MB label */
+    /* 1. Target the correct updated dropzone text container wrapper to remove 200MB label */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div > small {
         display: none !important;
     }
     
-    /* 2. Target fallback label wrappers if present */
+    /* 2. Target the secondary structural fallback label wrappers if present */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div > span {
         display: none !important;
     }
     
-    /* 3. accurate system limit */
+    /* 3. Inject your exact, accurate system limit smoothly in its place */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div::after {
-        content: "Limit To Max Size 25MB ";
+        content: "Limit 25MB cumulative";
         display: block;
         font-size: 0.8rem;
         color: #666666;
@@ -75,15 +75,15 @@ def contact(name, email, subject, body, attachments_list=None):
 
 
 # --- MAIN APP LAYOUT ---
-st.markdown("# :center[Louka Abed]")
-st.markdown("### :center[Clinical Data Scientist | AI Translational Medicine & Pharma R&D]")
+st.title("Louka Abed")
+st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D")
 
 st.markdown(
-    """:center[International Medical Graduate (MD) combining clinical and biochemistry domain expertise 
+    """International Medical Graduate (MD) combining clinical and biochemistry domain expertise 
 with MS in Data Science and Mathematics foundations to validate, audit, model, and extract AI 
 insights—accelerating novel drug discovery and building predictive translational medicine 
 pipelines through a systems approach that integrates complex healthcare data streams, 
-high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.]"""
+high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures."""
 )
 
 
