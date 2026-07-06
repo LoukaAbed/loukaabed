@@ -74,18 +74,22 @@ def contact(name, email, subject, body, attachments_list=None):
         )
 
 
-# --- MAIN APP LAYOUT ---
-st.title("Louka Abed", anchor=False, text_alignment="center")
-st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D", anchor=False, text_alignment="center")
+# --- MAIN APP LAYOUT (FIXED CENTERING) ---
+# 1. Native Centered Title
+st.markdown("# :center[Louka Abed]")
 
+# 2. Native Centered Subheader (using H3 equivalent markdown)
+st.markdown("### :center[Clinical Data Scientist | AI Translational Medicine & Pharma R&D]")
+
+# 3. Native Centered Abstract Paragraph (using native line breaks instead of HTML)
 st.markdown(
     """
-    International Medical Graduate (MD) combining clinical and biochemistry domain expertise with MS in Data Science <br>
-    and Mathematics foundations to validate, audit, model, and extract AI insights—accelerating novel drug discovery <br>
-    and building predictive translational medicine pipelines through a systems approach that integrates complex <br>
-    healthcare data streams, high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.""",
-unsafe_allow_html=True, text_alignment="center")
-
+    :center[International Medical Graduate (MD) combining clinical and biochemistry domain expertise with MS in Data Science  
+    and Mathematics foundations to validate, audit, model, and extract AI insights—accelerating novel drug discovery  
+    and building predictive translational medicine pipelines through a systems approach that integrates complex  
+    healthcare data streams, high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.]
+    """
+)
 
 st.divider()
 
