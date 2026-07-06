@@ -25,7 +25,7 @@ def contact(name, email, subject, body):
             "message": body,
         }
 
-        # Send data payload to Google Apps Script gateway
+        # Send email through google script
         network_response = requests.post(
             google_script, json=message_data, allow_redirects=True, timeout=15
         )
@@ -46,15 +46,15 @@ def contact(name, email, subject, body):
         )
 
 
-# --- MAIN APP LAYOUT RENDERING ---
+# --- MAIN APP LAYOUT ---
 st.title("Louka Abed")
 st.subheader("Clinical Data Scientist & AI Translational Medicine")
 
-# Clean, professional, grammatically parallel background anchor
+# three liner summary
 st.write(
-    """International Medical Graduate (MD) combining clinical and biochemistry domain expertise 
-with MS in Data Science and Mathematics foundations to validate, audit, model, and extract AI 
-insights from complex healthcare data streams and build predictive translational medicine pipelines."""
+    """"International Medical Graduate (MD) combining clinical and biochemistry domain expertise with MS in Data Science 
+    and Mathematics foundations to validate, audit, model, and extract AI insights from complex healthcare data streams 
+    to accelerate novel drug discovery and build predictive translational medicine pipelines."""
 )
 
 st.divider()
@@ -62,9 +62,10 @@ st.divider()
 # --- CONTACT FORM SECTION ---
 st.markdown("### 📬 Contact & Inquiries")
 st.markdown(
-    "To discuss corporate collaborations, micro-internships, or professional opportunities, "
+    "For professional inquiries, "
     "please submit a message below or contact me directly via [contact@loukaabed.com](mailto:contact@loukaabed.com)."
 )
+
 
 # Establish atomic transactional form loop logic
 with st.form("contact_form", clear_on_submit=True):
@@ -73,10 +74,10 @@ with st.form("contact_form", clear_on_submit=True):
     with col_left:
         name = st.text_input(
             "Name / Organization",
-            placeholder="e.g., Pharma Talent Acquisition / Venture Capital",
+            placeholder="e.g., Pharma Talent Acquisition",
         )
         subject = st.text_input(
-            "Subject", placeholder="e.g., Project Collaboration / Recruitment"
+            "Subject", placeholder="e.g., Recruitment / Collaboration"
         )
 
     with col_right:
