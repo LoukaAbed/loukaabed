@@ -79,12 +79,12 @@ st.title("Louka Abed")
 st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D")
 
 st.markdown(
-    """International Medical Graduate (MD) combining clinical and biochemistry domain expertise 
-with MS in Data Science and Mathematics foundations to validate, audit, model, and extract AI 
-insights—accelerating novel drug discovery and building predictive translational medicine 
-pipelines through a systems approach that integrates complex healthcare data streams, 
-high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.""",
-text_alignment="center")
+    """
+    International Medical Graduate (MD) combining clinical and biochemistry domain expertise with MS in Data Science  
+    and Mathematics foundations to validate, audit, model, and extract AI insights—accelerating novel drug discovery  
+    and building predictive translational medicine pipelines through a systems approach that integrates complex  
+    healthcare data streams, high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.""", 
+ unsafe_allow_html=True)
 
 
 st.divider()
@@ -92,8 +92,7 @@ st.divider()
 # --- CONTACT FORM SECTION ---
 st.markdown("### 📬 Contact & Inquiries")
 st.markdown(
-    "For professional inquiries, please submit a message below or email directly at [contact@loukaabed.com](mailto:contact@loukaabed.com).",
-    text_alignment="center"
+    "For professional inquiries, please submit a message below or email directly at [contact@loukaabed.com](mailto:contact@loukaabed.com)."
 )
 
 # Establish atomic transactional form loop logic
