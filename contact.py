@@ -3,30 +3,30 @@ import os
 import requests  # web traffic through google script
 import streamlit as st
 
-# Set page configuration at the absolute top to prevent rendering crashes
+# Set page configuration
 st.set_page_config(
     page_title="Louka Abed | Clinical Data Scientist & AI Translational Medicine",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-# --- CSS INJECTION TO CORRECT THE INACCURATE 200MB DISPLAY  on streamlit attachment button---
+# --- CORRECT INACCURATE 200MB DISPLAY  on streamlit attachment button---
 st.markdown(
     """
     <style>
-    /* 1. Target the correct updated dropzone text container wrapper to remove 200MB label */
+    /* 1. correct container wrapper to remove 200MB label */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div > small {
         display: none !important;
     }
     
-    /* 2. Target the secondary structural fallback label wrappers if present */
+    /* 2. correct fallback label wrappers if present */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div > span {
         display: none !important;
     }
     
-    /* 3. Inject your exact, accurate system limit smoothly in its place */
+    /* 3. Showing Accurate File Uploader Size */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div::after {
-        content: "Limit 25MB cumulative";
+        content: "Limit Max Upload Size 25MB";
         display: block;
         font-size: 0.8rem;
         color: #666666;
@@ -83,8 +83,8 @@ st.markdown(
 with MS in Data Science and Mathematics foundations to validate, audit, model, and extract AI 
 insights—accelerating novel drug discovery and building predictive translational medicine 
 pipelines through a systems approach that integrates complex healthcare data streams, 
-high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures."""
-)
+high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.""",
+text_alignment="center")
 
 
 st.divider()
@@ -92,7 +92,8 @@ st.divider()
 # --- CONTACT FORM SECTION ---
 st.markdown("### 📬 Contact & Inquiries")
 st.markdown(
-    "For professional inquiries, please submit a message below or email directly at [contact@loukaabed.com](mailto:contact@loukaabed.com)."
+    "For professional inquiries, please submit a message below or email directly at [contact@loukaabed.com](mailto:contact@loukaabed.com).",
+    text_alignment="center"
 )
 
 # Establish atomic transactional form loop logic
