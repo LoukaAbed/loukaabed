@@ -14,19 +14,19 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    /* 1. Target the correct updated dropzone text container wrapper to remove 200MB label */
+    /* 1. remove 200MB label */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div > small {
         display: none !important;
     }
     
-    /* 2. Target the secondary structural fallback label wrappers if present */
+    /* 2. Target secondary structural fallback label wrappers if present */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div > span {
         display: none !important;
     }
     
     /* 3. Inject your exact, accurate system limit smoothly in its place */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div::after {
-        content: "Limit 25MB cumulative";
+        content: "Limit Upload Size 25MB";
         display: block;
         font-size: 0.8rem;
         color: #666666;
@@ -75,16 +75,16 @@ def contact(name, email, subject, body, attachments_list=None):
 
 
 # --- MAIN APP LAYOUT ---
-st.title("Louka Abed")
-st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D")
+st.title("Louka Abed", anchor=False, text_alignment="center")
+st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D", anchor=False, text_alignment="center")
 
 st.markdown(
-    """International Medical Graduate (MD) combining clinical and biochemistry domain expertise 
-with MS in Data Science and Mathematics foundations to validate, audit, model, and extract AI 
-insights—accelerating novel drug discovery and building predictive translational medicine 
-pipelines through a systems approach that integrates complex healthcare data streams, 
-high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures."""
-)
+    """
+    International Medical Graduate (MD) combining clinical and biochemistry domain expertise with MS in Data Science <br>
+    and Mathematics foundations to validate, audit, model, and extract AI insights—accelerating novel drug discovery <br>
+    and building predictive translational medicine pipelines through a systems approach that integrates complex <br>
+    healthcare data streams, high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.""",
+unsafe_allow_html=True, text_alignment="center")
 
 
 st.divider()
