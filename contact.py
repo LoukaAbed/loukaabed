@@ -48,7 +48,7 @@ def contact(name, email, subject, body):
 
 # --- MAIN APP LAYOUT ---
 st.title("Louka Abed")
-st.subheader("Clinical Data Scientist & AI Translational Medicine")
+st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D")
 
 # three liner summary
 st.markdown(
