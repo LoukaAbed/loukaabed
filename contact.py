@@ -75,7 +75,7 @@ def contact(name, email, subject, body, attachments_list=None):
 
 
 # --- MAIN APP LAYOUT ---
-left, center, right = st.columns([1, 5, 1])
+left, center, right = st.columns([1, 2, 1])
 with center:
     with st.container(horizontal_alignment="center"):
         st.title("Louka Abed")
