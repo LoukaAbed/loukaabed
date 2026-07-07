@@ -1,6 +1,11 @@
 import streamlit as st
 
-st.set_page_config(page_title="My App")
+# set config for all subpages
+st.set_page_config(
+    page_title="Louka Abed | Clinical Data Scientist & AI Translational Medicine",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
 # Define page navigation
 contact = st.Page("contact.py", title="Contact", icon="📧")
