@@ -1,10 +1,10 @@
 ---
-title: Louka Abed Portfolio
+title: Louka Abed Portfolio App Pipeline
 emoji: 🧬
 colorFrom: blue
-colorTo: indigo
+colorTo: green
 sdk: streamlit
-sdk_version: 1.37.0
+sdk_version: 1.51.0
 app_file: app.py
 pinned: false
 ---
