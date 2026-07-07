@@ -18,7 +18,7 @@ st.markdown(
         display: none !important;
     }
     
-    /* 3. Showing Accurate File Uploader Size */
+    /* 3. Showing Accurate File Uploader total Size */
     div[data-testid="stFileUploaderDropzoneInstructions"] > div::after {
         content: "Limit Max Upload Size 25MB";
         display: block;
