@@ -69,7 +69,7 @@ def contact(name, email, subject, body, attachments_list=None):
 
 
 # --- MAIN APP LAYOUT ---
-left, center, right = st.columns([3, 1, 3])
+left, center, right = st.columns([3, 2, 3])
 with center:
     st.title("Louka Abed")
 st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D")
