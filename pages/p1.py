@@ -47,10 +47,13 @@ if uploaded_csv is not None :
     st.write(f"your {file_nameCSV} file was uploaded successfully to the database")
 
     #Returning the first five rows of the uploaded
-    st.write(f"First five rows of the uploaded {file_nameCSV}")
-    sql_query=f"SELECT * FROM {st.session_state['File1Name']} LIMIT 5"
-    result = pd.read_sql(sql_query, con=bridge)
-    st.write(result)
+    if st.session_state.get('SuccessMessage', False):
+        st.stop()   
+    else:
+        st.write(f"First five rows of the uploaded file:  {file_nameCSV}")
+        sql_query=f"SELECT * FROM {st.session_state['File1Name']} LIMIT 5"
+        result = pd.read_sql(sql_query, con=bridge)
+        st.write(result)
 if 'File1Name' in st.session_state:
     file1name=st.session_state["File1Name"]
     if st.button(f"Delete {file_nameCSV} Completely from the database"):
