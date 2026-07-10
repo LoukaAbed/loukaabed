@@ -16,7 +16,7 @@ url=os.environ.get("NEON_DB_URL")
 bridge=create_engine(url)
 
 #let's user upload a csv small 2MB or less file to be stored in the database
-uploaded_csv = st.file_uploader("Upload csv <= 2MB to be stored in the database", type=["csv"], max_upload_size=2)
+uploaded_csv = st.file_uploader("Upload csv <= 2MB to be stored in the database", type=["csv"])
 
 #Let's check the uploaded file for size and security check and prevent malicious code injection into the database.
 if uploaded_csv is not None :
