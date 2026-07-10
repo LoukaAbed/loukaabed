@@ -61,7 +61,7 @@ if 'File1Name' in st.session_state:
             connection.execute(text(sql_query))
             del st.session_state["File1Name"]
             st.session_state['SuccessMessage']=True
+            st.session_state['File_Deleted']=True
             st.rerun()
-if 'File1Name' not in st.session_state: 
-    if st.session_state.get('SuccessMessage', False):
+if st.session_state.get('File_Deleted', False) st.session_state.get('SuccessMessage', False):
         st.success(f"{file_nameCSV} has been completely deleted from the database.")
