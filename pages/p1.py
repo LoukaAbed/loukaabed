@@ -34,6 +34,11 @@ file1name=st.session_state["File1Name"]
 
 #Let's check the uploaded file for size and security check and prevent malicious code injection into the database.
 if uploaded_csv is not None :
+    #remove space from name of the file, and storing the full file name with extension and without in two variables
+    file_name = uploaded_csv.name.split('.')[0].replace(' ', '_')
+    file_nameCSV = file_name + '.csv'
+    file1name=st.session_state["File1Name"]
+
     if uploaded_csv.size > 2*1024*1024:
         st.error(f"[Upload Error] : {file_nameCSV} size exceeded 2MB limit. Please upload a smaller file.")
         st.stop() #stop the execution
@@ -62,6 +67,6 @@ if 'File1Name' in st.session_state:
             st.session_state['File_Deleted']=True
             st.rerun()
             
-if st.session_state.get('File_Deleted', False):
+if 'File1Name' is not in st.session_state:
     if st.session_state.get('SuccessMessage', False):
         st.success(f"{file_nameCSV} has been completely deleted from the database.")
