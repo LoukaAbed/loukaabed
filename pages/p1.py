@@ -18,9 +18,9 @@ bridge=create_engine(url)
 
 def safe(file_1, session_state):
     if file_1 is not None:
-        if File1Name not in session_state:
+        if "File1Name" not in session_state:
             hex_name = uuid.uuid4().hex
-            session_state[File1Name]=f"User_{hex_name}"
+            session_state["File1Name"]=f"User_{hex_name}"
             st.write(hex_name)
             st.write(session_state)
 
