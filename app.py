@@ -2,9 +2,9 @@ import streamlit as st
 
 # set config for all subpages
 st.set_page_config(
-    page_title="Louka Abed | Clinical Data Scientist & AI Translational Medicine",
-    layout="wide",
-    initial_sidebar_state="expanded",
+    page_title='Louka Abed | Portfolio',
+    page_icon='assets/Louka_portfolio_tab_icon.png',
+    layout='wide'
 )
 
 # Define page navigation
