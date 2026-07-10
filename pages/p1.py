@@ -16,18 +16,18 @@ url=os.environ.get("NEON_DB_URL")
 #establishing bridge to the database
 bridge=create_engine(url)
 
-def safe(file_1, session_state):
+def safe(file_1):
     if file_1 is not None:
-        if "File1Name" not in session_state:
+        if "File1Name" not in st.session_state:
             hex_name = uuid.uuid4().hex
-            session_state["File1Name"]=f"User_{hex_name}"
+            st.session_state["File1Name"]=f"User_{hex_name}"
             st.write(hex_name)
-            st.write(session_state)
+            st.write(st.session_state)
 
 
 #let's user upload a csv small 2MB or less file to be stored in the database
 uploaded_csv = st.file_uploader("Upload csv <= 2MB to be stored in the database", type=["csv"])
-safe(uploaded_csv, st.session_state)
+safe(uploaded_csv)
 
 #Let's check the uploaded file for size and security check and prevent malicious code injection into the database.
 if uploaded_csv is not None :
