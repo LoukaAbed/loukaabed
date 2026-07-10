@@ -23,9 +23,6 @@ uploaded_csv = st.file_uploader("Upload csv <= 2MB to be stored in the database"
 
 
 
-
-
-
 def safe(file_1):
     if uploaded_csv is not None:
         if "File1Name" not in st.session_state:
@@ -62,13 +59,15 @@ if uploaded_csv is not None and not st.session_state.get('upload_deleted', False
     st.write(result)
 if 'File1Name' in st.session_state:
     file1name=st.session_state["File1Name"]
-    if st.button(f"Delete {file_nameCSV} Completely from the database"):
+    file_name = uploaded_csv.name.split('.')[0].replace(' ', '_')
+    file_nameCSV = file_name + '.csv'
+    if st.button(f"Delete  {file_nameCSV} Completely from the database"):
         with bridge.begin() as connection:
             sql_query = f"DROP TABLE IF EXISTS {file1name}"
             connection.execute(text(sql_query))
-            #del st.session_state["File1Name"]
+            del st.session_state["File1Name"]
             st.session_state['upload_deleted']=True
             st.rerun() 
 if 'File1Name' not in st.session_state: 
-    if st.session_state.get('SuccessMessage', False):
+    if st.session_state.get('upload_deleted', False):
         st.success(f"{file_nameCSV} has been completely deleted from the database.")
