@@ -2,6 +2,7 @@ import os
 import streamlit as st
 from sqlalchemy import create_engine
 import pandas as pd
+import uuid
 
 #this page made to test the connection to the database
 st.title("📈 Database Connection Test")
@@ -15,8 +16,17 @@ url=os.environ.get("NEON_DB_URL")
 #establishing bridge to the database
 bridge=create_engine(url)
 
+def safe(file, session_state):
+    if file is not None:
+        if internal_name not in session_state:
+            hex_name = uuid.uuid4().hex
+            session_state[internal_name]=f"User_{hex_name}"
+            st.write(session_state)
+
+
 #let's user upload a csv small 2MB or less file to be stored in the database
 uploaded_csv = st.file_uploader("Upload csv <= 2MB to be stored in the database", type=["csv"])
+safe(uploaded_csv, st.session_state)
 
 #Let's check the uploaded file for size and security check and prevent malicious code injection into the database.
 if uploaded_csv is not None :
@@ -39,3 +49,4 @@ if uploaded_csv is not None :
     sql_query=f"SELECT * FROM {file_name} LIMIT 5"
     result = pd.read_sql(sql_query, con=bridge)
     st.write(result)
+    
