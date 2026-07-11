@@ -14,17 +14,16 @@ if uploaded_file is not None:
         st.error("File size exceeds the maximum limit of 2MB.")
         st.stop()
     if st.session_state['uploaded_file'] is None:
-        tbl_name = db.store_db(uploaded_file)
-        st.session_state['uploaded_file'] = tbl_name
+        st.session_state['active_tbl'] = db.store_db(uploaded_file)
+        st.session_state['uploaded_file'] = st.session_state['active_tbl']
         st.success(f"Your file {uploaded_file.name.replace(' ', '_')} was uploaded and stored in database as: {tbl_name}")
-if st.session_state['uploaded_file'] is not None:
-    active_tbl=st.session_state['uploaded_file']
-    uploadedfile_preview = f"SELECT * FROM {active_tbl} LIMIT 5"
+if st.session_state['active_tbl'] is not None:
+    uploadedfile_preview = f"SELECT * FROM {st.session_state['active_tbl']} LIMIT 5"
     st.write(db.fetch_db(uploadedfile_preview))
     if st.button("Drop Uploaded Table"):
-        db.drop_db(active_tbl)
-        st.session_state['uploaded_file'] = None
-        st.success(f"Table {active_tbl} has been dropped from the database.")
+        db.drop_db(st.session_state['active_tbl'])
+        st.success(f"Table {st.session_state['active_tbl']} has been dropped from the database.")
+        st.session_state['active_tbl'] = None
         st.rerun()
 
 st.divider()
