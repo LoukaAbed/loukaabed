@@ -58,4 +58,4 @@ if st.session_state['active_tbl'] is not None:
         st.session_state['version'] +=1
         st.rerun()
 
-st.space('medium')
+st.space('large')
