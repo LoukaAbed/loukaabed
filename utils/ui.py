@@ -1,3 +1,4 @@
+import streamlit as st
 
 def maxfile_size(max_size=2):
     """Change the displayed default size setting on the upload button to a custom argument max_size"""
