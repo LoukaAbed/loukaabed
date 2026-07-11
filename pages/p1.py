@@ -11,7 +11,7 @@ if uploaded_file is not None:
         st.error("File size exceeds the maximum limit of 2MB.")
         st.stop()
     tbl_name = db.store_db(uploaded_file)
-    st.success(f"Your file {uploaded_file.name} was uploaded and stored in database as: {tbl_name}")
+    st.success(f"Your file {uploaded_file.name.replace(' ', '_')} was uploaded and stored in database as: {tbl_name}")
     uploadedfile_preview = f"SELECT * FROM {tbl_name} LIMIT 5"
     st.write(db.fetch_db(uploadedfile_preview))
 
