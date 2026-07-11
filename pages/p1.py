@@ -1,4 +1,3 @@
-from pydoc import text
 import streamlit as st
 import utils.db_utils as db
 
@@ -11,7 +10,17 @@ if 'version' not in st.session_state:
     st.session_state['version']=0
 uploader_key=f"upload_{st.session_state['version']}"
 uploaded_file = st.file_uploader("Upload a CSV file: Max Size 2MB", type=["csv"], key=uploader_key)
-st.write('Active Table ', st.session_state['active_tbl'])
+
+if 'deletion_msg' not in st.session_state:
+    st.session_state['deletion_msg']=False
+if 'deleted_tbl' not in  st.session_state:
+    st.session_state['deleted_tbl']=''
+
+if st.session_state['deletion_msg']:
+    st.success(f'Your uploaded file {st.session_state['deleted_tbl']} has been successfuly deleted from the database')
+    st.session_state['deletion_msg']=False
+    st.session_state['deleted_tbl']=''
+
 if uploaded_file is not None:
     if uploaded_file.size > 2 * 1024 * 1024:
         st.error("File size exceeds the maximum limit of 2MB.")
@@ -26,7 +35,8 @@ if st.session_state['active_tbl'] is not None:
     st.write(db.fetch_db(uploadedfile_preview))
     if st.button("Drop Uploaded Table"):
         db.drop_db(tbl_name)
-        st.success(f"Table {st.session_state['active_tbl']} has been dropped from the database.")
+        st.session_state['deletion_msg']=True
+        st.session_state['deleted_tbl']=tbl_name
         st.session_state['active_tbl'] = None
         st.session_state['version'] +=1
         st.rerun()
