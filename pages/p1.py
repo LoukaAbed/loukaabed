@@ -2,12 +2,14 @@ import streamlit as st
 import utils.db as db
 import utils.ui as ui
 
-st.title("Database Management Test")
+st.title("Testing usage of data from a database")
 
 st.divider()
 
 #change default displayed file size from 200MB to 2MB
 ui.maxfile_size(2)
+
+st.subheader("Implementing user-driven interactive data filter")
 
 min_age, max_age = st.slider("Age", 0.0, 100.0, value=(0.0, 100.0), key="age")
 query_age = "SELECT * FROM bp where gender = :gender and age between :min_age and :max_age"
@@ -15,6 +17,8 @@ gender = st.radio(label="Gender", options=["Male", "Female"], horizontal=True)
 st.write(db.fetch_db(query_age, {"gender": gender, "min_age": min_age, "max_age": max_age}))
 
 st.divider()
+
+st.subheader("Upload user file into database, retrieve and clean database. Will apply data science tools in future iteration ")
 
 
 if 'active_tbl' not in st.session_state:
@@ -54,3 +58,4 @@ if st.session_state['active_tbl'] is not None:
         st.session_state['version'] +=1
         st.rerun()
 
+st.space('medium')
