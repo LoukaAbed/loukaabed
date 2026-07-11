@@ -6,7 +6,7 @@ st.title("Database Connection and Management Test")
 st.divider()
 
 if 'uploaded_file' not in st.session_state:
-    st.session_state.uploaded_file = None
+    st.session_state['active_tbl'] = None
 
 uploaded_file = st.file_uploader("Upload a CSV file: Max Size 2MB", type=["csv"])
 if uploaded_file is not None:
