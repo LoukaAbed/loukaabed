@@ -37,7 +37,7 @@ def store_db(uploaded_file, prefix='user_', tbl_name='uuid', if_tbl_exist: Liter
     safe_tbl_name = name_db(prefix, tbl_name)
     with bridge.begin() as conn:
         df.to_sql(safe_tbl_name, con=conn, schema=destination_schema, if_exists=if_tbl_exist, index=False)
-    return tbl_name
+    return safe_tbl_name
 
 def drop_db(tbl_name):
     with bridge.begin() as conn:
