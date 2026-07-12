@@ -26,3 +26,5 @@ if bttn and selector:
     st.success(f"Schema: {db.schema_db(schma=selector, need='delete_schema')} was successfuly deleted")
     st.rerun()
 
+uploaded_file = st.file_uploader("Upload a CSV file: Max Size 2MB", type=["csv"], key=uploader_key)
+
