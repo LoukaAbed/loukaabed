@@ -1,8 +1,10 @@
 [theme]
-primaryColor = "#008080" # Corporate Teal Accent Color
-backgroundColor = "#FFFFFF" # Crisp White Background
-secondaryBackgroundColor = "#F8F9FA" # Subtle Light Gray for Sidebars
-textColor = "#212529" # Off-Black Text for Maximum Readability
+base = "dark"
+primaryColor = "#00B4D8"
+backgroundColor = "#0B0F19"
+secondaryBackgroundColor = "#1E2640"
+textColor = "#F4F6F9"
 font = "sans serif"
+
 [server]
-maxUploadSize = 150
+maxUploadSize = 25
