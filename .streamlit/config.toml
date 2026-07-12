@@ -1,10 +1,22 @@
 [theme]
+# base template ("light" or "dark")
 base = "dark"
+
+# color for buttons, active items, and headers
 primaryColor = "#00B4D8"
+
+# background color
 backgroundColor = "#0B0F19"
+
+# Dark  for interactive widgets, file upload, and input 
 secondaryBackgroundColor = "#1E2640"
+
+# off-white text
 textColor = "#F4F6F9"
+
+# sans-serif font
 font = "sans serif"
+
 
 [server]
 maxUploadSize = 25
