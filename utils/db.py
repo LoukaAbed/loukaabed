@@ -26,7 +26,8 @@ def name_db(prefix='user_', tbl_name='uuid'):
         else:
             file_name=tbl_name
             extension=''
-        return f"{prefix}{re.sub(r'[_]+', '_', re.sub(r'[^a-zA-Z0-9_]', '_', file_name)).lower()}_{extension}"
+            x=f"{prefix}{re.sub(r'[_]+', '_', re.sub(r'[^a-zA-Z0-9_]', '_', file_name)).lower()}_{extension}"
+            return re.sub(r'[_]+', '_', x)
 
     else:
         return prefix + uuid.uuid4().hex
