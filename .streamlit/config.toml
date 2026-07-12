@@ -4,3 +4,5 @@ backgroundColor = "#FFFFFF" # Crisp White Background
 secondaryBackgroundColor = "#F8F9FA" # Subtle Light Gray for Sidebars
 textColor = "#212529" # Off-Black Text for Maximum Readability
 font = "sans serif"
+[server]
+maxUploadSize = 150

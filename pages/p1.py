@@ -59,3 +59,5 @@ if st.session_state['active_tbl'] is not None:
         st.rerun()
 
 st.space('large')
+st.divider()
+

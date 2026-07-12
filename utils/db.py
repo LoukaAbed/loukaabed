@@ -1,7 +1,8 @@
 import pandas as pd
 import os
 import uuid
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, inspect, MetaData, text
+from sqlalchemy.schema import CreateSchema, DropSchema
 from typing import Literal
 import re
 
@@ -49,3 +50,19 @@ def store_db(uploaded_file, prefix='user_', name_type: Literal['file', 'uuid']='
 def drop_db(tbl_name):
     with bridge.begin() as conn:
         conn.execute(text(f"DROP TABLE IF EXISTS {tbl_name}"))
+
+def schema_db(schma='db1', need: Literal['new_schema', 'delete_schema', 'empty_schema']='new_schema'):
+    all_schemas = inspect(bridge).get_schema_names()
+    with bridge.begin() as conn:
+        if schma in all_schemas and need=='delete_schema':
+            conn.execute(DropSchema(schma, if_exists=True, cascade=True))
+            return True
+        elif schma in all_schemas and need=='empty_schema':
+            x=MetaData(schema=schma) 
+            x.reflect(bind=bridge)
+            x.drop_all(conn)
+            return True
+        elif need=='new_schema':
+            conn.execute(CreateSchema(schma, if_not_exists=True))
+            return True
+    return False
