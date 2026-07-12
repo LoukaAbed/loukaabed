@@ -11,3 +11,5 @@ if st.button('Create New Schema'):
     if schema_name.strip:
         safe_name=db.name_db(tbl_name=schema_name, prefix='', name_type='file')
         st.success(f'Schema name after format: {safe_name}')
+    else:
+        st.warning("The input field is empty. Please enter text.")
