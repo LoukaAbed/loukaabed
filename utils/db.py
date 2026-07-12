@@ -19,17 +19,22 @@ def edit_db(query, query_dic=None):
         return pd.DataFrame(result.mappings())   
 
 def name_db(prefix='user_', tbl_name='uuid'):
+    tbl=''
     if tbl_name != 'uuid':
         if '.' in tbl_name:
             file_name, extension = tbl_name.rsplit('.', 1)
             extension = extension.lower()
-            return f"{prefix}{re.sub(r'[_]+', '_', re.sub(r'[^a-zA-Z0-9_]', '_', file_name)).lower()}_{extension}"
+            tbl= f"{prefix}{re.sub(r'[_]+', '_', re.sub(r'[^a-zA-Z0-9_]', '_', file_name)).lower()}_{extension}"
         else:
             file_name=tbl_name
             extension=''
-            return f"{prefix}{re.sub(r'[_]+', '_', re.sub(r'[^a-zA-Z0-9_]', '_', file_name)).lower()}"
+            tbl= f"{prefix}{re.sub(r'[_]+', '_', re.sub(r'[^a-zA-Z0-9_]', '_', file_name)).lower()}"
     else:
-        return prefix + uuid.uuid4().hex
+        tbl= prefix + uuid.uuid4().hex
+    if tbl[0].isdigit() or tbl[0]=='_':
+        return f'x_{tbl}'
+    else:
+        return tbl
 
 
 def store_db(uploaded_file, prefix='', tbl_name='uuid', if_tbl_exist: Literal['append', 'replace', 'fail']='replace', destination_schema='public'):
