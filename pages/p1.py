@@ -35,7 +35,7 @@ if upload_button:
             if tables:
                 st.success(f"Originally {len(dataset)} files uploaded and {len(tables)} tables saved successfully in public schema db")
                 for tbl_name, table in tables.items():
-                    st.code(f"Tables Saved to the database:' ' {tbl_name} with ' ' {len(table)} rows")
+                    st.code(f"Tables Saved to the database: {tbl_name} with  {len(table)} rows")
             else:
                 st.warning("File types are not supported, only accept csv xlsx tsv txt")
 st.space('large')
