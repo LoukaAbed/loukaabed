@@ -26,15 +26,21 @@ if st.button('Create New Schema'):
 #     st.success(f"Schema: {db.schema_db(schma=selector, need='empty_schema')} was successfuly deleted")
 #     st.rerun()
 
+if 'uploaded' not in st.session_state:
+    st.session_state['uploaded']=None
+
 dataset = st.file_uploader("Upload multiple files dataset:", type=None, accept_multiple_files=True, key="dataset_upload")
 if dataset: 
     if st.button('Upload Dataset'):
         with st.spinner(f"Uploading files into 'mimic4demo' schema. Processing..."):
-            tables=db.dataset_db(dataset, schema='mimic4demo')
-            if tables:
-                st.success(f"Originally {len(dataset)} files detected and successfully processed and stored {len(tables)} tables!")
+            tbl_dic=db.dataset_db(dataset, schema='mimic4demo')
+            st.session_state['uploaded']=tbl_dic
+    if st.session_state['uploaded'] is not None:
+        saved_tbl_dic = st.session_state['uploaded']
+        if saved_tbl_dic:
+            st.success(f"Originally {len(dataset)} files detected and successfully processed and stored {len(saved_tbl_dic)} tables!")
 
-                for tbl_name, table in tables.items():
-                    st.code(f"Database Table Created: {tbl_name} ({len(table)} rows)")
-            else:
-                st.warning("Files with no supported extensions, only (.csv, .xlsx, .tsv, .txt, .dat) accepted.")
+            for tbl_name, table in saved_tbl_dic.items():
+                st.code(f"Database Table Created: {tbl_name} ({len(table)} rows)")
+        else:
+            st.warning("Files with no supported extensions, only (.csv, .xlsx, .tsv, .txt, .dat) accepted.")
