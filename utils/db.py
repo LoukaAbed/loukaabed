@@ -68,3 +68,23 @@ def schema_db(schma='db1', need: Literal['new_schema', 'delete_schema', 'empty_s
     return False
 def inside_db(need='schema'):
     return inspect(bridge).get_schema_names()
+
+def dataset_db(dataset, schema='public', if_exists='replace'):
+    dataset_dic = {}
+    with bridge.begin() as conn:
+        for file in dataset:
+            if hasattr(file, 'seek'):
+                file.seek(0)
+            df=''
+            file_key = name_db(file.name, prefix='mimic4demo_', name_type='file')
+            if file.name.endswith(('.tsv', '.txt', '.dat')):
+                df = pd.read_csv(file, sep=None, engine='python')
+            elif file.name.endswith('.csv'):
+                df = pd.read_csv(file)
+            elif file.name.endswith('.xlsx'):
+                df = pd.read_excel(file)
+            if isinstance(df, str):
+                continue
+            df.to_sql(name=file_key, con=conn, schema=schema, if_exists=if_exists, index=False)
+            dataset_dic[file_key] = df
+    return dataset_dic

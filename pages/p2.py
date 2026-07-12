@@ -26,5 +26,5 @@ if bttn and selector:
     st.success(f"Schema: {db.schema_db(schma=selector, need='delete_schema')} was successfuly deleted")
     st.rerun()
 
-uploaded_file = st.file_uploader("Upload a CSV file: Max Size 2MB", type=["csv"], key="dataset_upload")
-
+dataset = st.file_uploader("Upload multiple files dataset:", type=None, accept_multiple_files=True, key="dataset_upload")
+db.dataset_db(dataset, schema='mimic4demo')
