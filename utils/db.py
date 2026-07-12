@@ -66,3 +66,5 @@ def schema_db(schma='db1', need: Literal['new_schema', 'delete_schema', 'empty_s
             conn.execute(CreateSchema(schma, if_not_exists=True))
             return schma
     return False
+def inside_db(need='schema'):
+    return inspect(bridge).get_schema_names()
