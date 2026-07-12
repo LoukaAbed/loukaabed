@@ -9,5 +9,5 @@ st.divider()
 schema_name=st.text_input("New DB Schema:", placeholder="db1")
 if st.button('Create New Schema'):
     if schema_name.strip:
-        safe_name=name_db(tbl_name=schema_name, prefix='', name_type='file'):
+        safe_name=name_db(tbl_name=schema_name, prefix='', name_type='file')
         st.success(f'Schema name after format: {safe_name}')
