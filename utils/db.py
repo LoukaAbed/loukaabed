@@ -19,9 +19,9 @@ def edit_db(query, query_dic=None):
         return pd.DataFrame(result.mappings())   
 
 
-def name_db(prefix='user_', tbl_name='uuid'):
+def name_db(tbl_name, prefix='user_', name_type='uuid'):
     tbl=''
-    if tbl_name != 'uuid':
+    if name_type == 'file':
         if '.' in tbl_name:
             file_name, extension = tbl_name.rsplit('.', 1)
             extension = extension.lower()
@@ -38,9 +38,10 @@ def name_db(prefix='user_', tbl_name='uuid'):
         return tbl
 
 
-def store_db(uploaded_file, prefix='', tbl_name='uuid', if_tbl_exist: Literal['append', 'replace', 'fail']='replace', destination_schema='public'):
+def store_db(uploaded_file, prefix='user_', name_type: Literal['file', 'uuid']='file', if_tbl_exist: Literal['append', 'replace', 'fail']='replace', destination_schema='public'):
     df = pd.read_csv(uploaded_file)
-    safe_tbl_name = name_db(prefix, tbl_name)
+    file= uploaded_file.name
+    safe_tbl_name = name_db(file, prefix, name_type)
     with bridge.begin() as conn:
         df.to_sql(safe_tbl_name, con=conn, schema=destination_schema, if_exists=if_tbl_exist, index=False)
     return safe_tbl_name

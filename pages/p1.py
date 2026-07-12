@@ -43,7 +43,7 @@ if uploaded_file is not None:
         st.error("File size exceeds the maximum limit of 2MB.")
         st.stop()
     if st.session_state['active_tbl'] is None:
-        tbl_name = db.store_db(uploaded_file, prefix='user_', tbl_name=uploaded_file.name)
+        tbl_name = db.store_db(uploaded_file, prefix='', name_type='uuid')
         st.session_state['active_tbl']=tbl_name
         st.success(f"Your file {uploaded_file.name.replace(' ', '_')} was uploaded and stored in database as: {tbl_name}")
 if st.session_state['active_tbl'] is not None:
