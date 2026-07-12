@@ -8,7 +8,7 @@ st.title('Upload Dataset')
 st.divider()
 schema_name=st.text_input("New DB Schema:", placeholder="db1")
 if st.button('Create New Schema'):
-    if schema_name.strip:
+    if schema_name.strip():
         safe_name=db.name_db(tbl_name=schema_name, prefix='', name_type='file')
         st.success(f'Schema name after format: {safe_name}')
     else:
