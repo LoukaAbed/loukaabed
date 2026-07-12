@@ -32,8 +32,8 @@ if 'uploaded' not in st.session_state:
 dataset = st.file_uploader("Upload multiple files dataset:", type=None, accept_multiple_files=True, key="dataset_upload")
 if dataset: 
     if st.button('Upload Dataset'):
-        with st.spinner(f"Uploading files into 'mimic4demo' schema. Processing..."):
-            tbl_dic=db.dataset_db(dataset, schema='mimic4demo')
+        with st.spinner(f"Uploading files into 'public' schema. Processing..."):
+            tbl_dic=db.dataset_db(dataset, schema='public')
             st.session_state['uploaded']=tbl_dic
     if st.session_state['uploaded'] is not None:
         saved_tbl_dic = st.session_state['uploaded']
