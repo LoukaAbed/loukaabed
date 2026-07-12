@@ -14,7 +14,7 @@ if st.button('Create New Schema'):
     else:
         st.warning("The input field is empty. Please enter text.")
 
-col1, col2 = st.columns([1, 2])
+col1, col2 = st.columns([1, 2], vertical_alignment="center")
 with col1:
     bttn = st.button('Delete Schema')
 with col2:
