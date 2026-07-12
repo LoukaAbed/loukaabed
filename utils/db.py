@@ -23,11 +23,11 @@ def name_db(prefix='user_', tbl_name='uuid'):
         if '.' in tbl_name:
             file_name, extension = tbl_name.rsplit('.', 1)
             extension = extension.lower()
+            return f"{prefix}{re.sub(r'[_]+', '_', re.sub(r'[^a-zA-Z0-9_]', '_', file_name)).lower()}_{extension}"
         else:
             file_name=tbl_name
             extension=''
-            x=f"{prefix}{re.sub(r'[_]+', '_', re.sub(r'[^a-zA-Z0-9_]', '_', file_name)).lower()}_{extension}"
-            return re.sub(r'[_]+', '_', x)
+            return f"{prefix}{re.sub(r'[_]+', '_', re.sub(r'[^a-zA-Z0-9_]', '_', file_name)).lower()}"
     else:
         return prefix + uuid.uuid4().hex
 
