@@ -12,5 +12,4 @@ with st.form('batch_files_upload', clear_on_submit=False):
 if st.session_state[f"{st.session_state['counter']}"]:
     st.write(st.session_state[f"{st.session_state['counter']}"][0].name)
     st.session_state['counter'] +=1
-    st.session_state[f"{st.session_state['counter']}"]
     st.rerun()
