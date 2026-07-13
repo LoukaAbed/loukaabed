@@ -21,8 +21,7 @@ st.subheader("User upload file into database, read data, then delete. Will apply
 if 'saved_tables' not in st.session_state:
     st.session_state['saved_tables']=None
     st.session_state['files_count']=0
-if 'dataset_key' not in st.session_state:
-    st.session_state['dataset_key']={}
+
 
 
 #using form to prevent db write from random clicks
