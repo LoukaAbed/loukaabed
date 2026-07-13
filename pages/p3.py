@@ -6,3 +6,4 @@ with st.form('batch_files_upload', clear_on_submit=False):
     upload_button = st.form_submit_button('Upload Dataset')
 if st.session_state['dataset']:
     st.write(st.session_state['dataset'][0].name)
+    st.session_state['dataset']=None
