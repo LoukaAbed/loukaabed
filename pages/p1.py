@@ -2,7 +2,7 @@ import streamlit as st
 import utils.db as db
 import utils.ui as ui
 
-st.title("Testing usage of data from a database")
+st.title("Using data from a database")
 st.divider()
 ui.maxfile_size(50) #change default displayed file size from 200MB to 50MB
 
