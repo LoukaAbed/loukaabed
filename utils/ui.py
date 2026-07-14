@@ -8,9 +8,9 @@ def upload():
     if upload_button:
         if uploaded is not None:
             dataset=st.session_state['upload']
-            return dataset
             for file in dataset:
                 st.write(f"File: {file.name} was successfully uploaded")
+            return dataset
         else:
             st.warning('Please upload the files before clicking submit')
 
