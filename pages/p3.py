@@ -17,3 +17,5 @@ if upload_button:
         dataset = st.session_state[f"{st.session_state['counter']}"]
         for file in dataset:
             st.success(f"Your file: {file.name} was successfuly uploaded")
+    st.session_state['counter'] +=1
+    st.rerun()
