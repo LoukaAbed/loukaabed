@@ -6,12 +6,12 @@ def upload():
         upload_button = st.form_submit_button('Submit For Dataset Upload')
 
     if upload_button:
-        if uploaded is not None:
+        if uploaded:
             dataset=st.session_state['upload']
             for file in dataset:
                 st.write(f"File: {file.name} was successfully uploaded")
             return dataset
-        elif uploaded:
+        else:
             st.warning('Please upload the files before clicking submit')
 
 
