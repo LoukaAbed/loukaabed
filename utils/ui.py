@@ -12,7 +12,7 @@ def upload():
                 st.write(f"File: {file.name} was successfully uploaded")
             return dataset
         else:
-            st.warning('Please upload the files before clicking submit')
+            return st.warning('Please upload the files before clicking submit')
 
 
 
