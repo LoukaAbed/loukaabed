@@ -11,8 +11,8 @@ def upload():
             for file in dataset:
                 st.write(f"File: {file.name} was successfully uploaded")
             return dataset
-        else:
-            return st.warning('Please upload the files before clicking submit')
+        elif uploaded:
+            st.warning('Please upload the files before clicking submit')
 
 
 
