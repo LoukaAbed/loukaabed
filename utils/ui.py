@@ -15,7 +15,7 @@ def upload():
             selected_schema = st.selectbox("Select target schema for upload", inspect(bridge).get_schema_names())
 
     if upload_button:
-        if uploaded:
+        if uploaded and len(uploaded)>0:
             with st.spinner(f"Uploading files into 'public' schema. Processing..."):
                 dataset=st.session_state['upload']
                 dataset_dic={}
