@@ -22,7 +22,7 @@ def upload():
                 dataset=st.session_state['upload']
                 dataset_dic={}
                 for file in st.session_state['dataset_dic']:
-                    file_key = db.name_db(file.name, prefix='', name_type='file')
+                    file_key = db.name_db(file, prefix='', name_type='file')
                     dataset_dic[file_key] = file
                 st.session_state['dataset_dic'] = db.dataset_db(dataset, schema=selected_schema, prefix='', if_exists='replace')
         else:
