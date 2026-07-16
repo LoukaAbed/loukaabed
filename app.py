@@ -1,5 +1,6 @@
 import streamlit as st
 
+
 # set config for all subpages
 st.set_page_config(
     page_title='Louka Abed | Portfolio',
