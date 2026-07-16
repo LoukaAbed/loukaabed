@@ -19,14 +19,12 @@ def upload():
     if upload_button:
         if uploaded and len(uploaded)>0:
             with st.spinner(f"Uploading files into 'public' schema. Processing..."):
-                st.session_state['dataset_dic']=st.session_state['upload']
+                dataset=st.session_state['upload']
                 dataset_dic={}
                 for file in st.session_state['dataset_dic']:
                     file_key = db.name_db(file.name, prefix='', name_type='file')
                     dataset_dic[file_key] = file
-                st.write(f"File: {file.name} was successfully uploaded")
                 st.session_state['dataset_dic'] = db.dataset_db(dataset, schema=selected_schema, prefix='', if_exists='replace')
-                return st.session_state['dataset_dic']
         else:
             st.warning('Please upload the files before clicking submit')
 
