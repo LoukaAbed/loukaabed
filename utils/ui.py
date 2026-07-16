@@ -21,6 +21,7 @@ def upload():
                 for file in dataset:
                     st.write(f"File: {file.name} was successfully uploaded")
                 dataset_dic = db.dataset_db(dataset, schema=selected_schema, prefix='', if_exists='replace')
+                st.write(dataset_dic.keys())
                 return dataset_dic
         else:
             st.warning('Please upload the files before clicking submit')
