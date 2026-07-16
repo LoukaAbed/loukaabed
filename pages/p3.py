@@ -6,8 +6,8 @@ import time
 st.title('Testing Streamlit and code implementation')
 
 dataset = ui.upload()
-for file, df in dataset.items():
+for file in dataset:
     st.write(file)
-    st.write(df.head())
+    st.write(dataset[file].head())
     time.sleep(2)
 
