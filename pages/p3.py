@@ -10,5 +10,4 @@ dataset=st.session_state['dataset_dic']
 for file in dataset:
     st.write(file)
     st.write(dataset[file].head())
-    time.sleep(2)
 
