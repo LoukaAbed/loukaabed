@@ -6,7 +6,7 @@ import streamlit as st
 import utils.ui as ui
 
 # --- CORRECT INACCURATE 200MB DISPLAY  on streamlit attachment button---
-ui.maxfile_size(25)
+#ui.maxfile_size(25)
 
 def contact(name, email, subject, body, attachments_list=None):
     """Email delivery routing via Google Script webhook with multi-file list payload integration."""
@@ -85,7 +85,7 @@ with st.form("contact_form", clear_on_submit=True):
 
     uploaded_files = st.file_uploader(
         "Upload Attachments (Any File Type - Max Total 25MB)",
-        accept_multiple_files=True,
+        accept_multiple_files=True, max_upload_size=25,
         help="Attach datasets, medical images, Python (.py) / R (.r) scripts, PDFs, text, docx.",
     )
 
