@@ -15,11 +15,10 @@ st.write("**Employment Status:** US Citizen | Fully authorized for US employment
 st.divider()
 st.markdown("### Education")
 st.markdown("**MS in Data Science** | Eastern University | Expected Graduation: May 2027 (In Progress)")
-st.write("""* **Completed Coursework:** Principles of Python Programming, Data and Database Management with SQL.""")
+st.write("""> **Coursework:** Principles of Python Programming, Data and Database Management with SQL.""")
 
-st.markdown("**Cairo University Faculty of Medicine, Cairo, Egypt**")
-st.write("* Bachelor of Medicine, Bachelor of Surgery (M.B. B.Ch.) — *Equivalent to MD degree in the United States. Certified General Medical Practitioner.*")
-st.write("* Clinical Clerkship at Columbia University College of Physicians and Surgeons, New York. Routinely used Electronic Health Record (EHR). Passed US Medical Licensing Exam step 1 (USMLE step 1).")
+st.markdown("**Bachelor of Medicine, Bachelor of Surgery (M.B. B.Ch.) (MD equivalent in the US) | Cairo University Faculty of Medicine **")
+st.write("> **Clinical Clerkship** at Columbia University College of Physicians and Surgeons, New York. Routinely used Electronic Health Record (EHR). Passed US Medical Licensing Exam step 1 (USMLE step 1).")
 
 st.markdown("**University of Massachusetts (UMass), Boston**")
 st.write("* Bachelor of Science in Biochemistry & Mathematics Minor — *Summa Cum Laude graduate with Honors in Biochemistry, top of my class, GPA 3.86/4.00.*")
