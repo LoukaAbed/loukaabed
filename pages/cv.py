@@ -1,10 +1,10 @@
 import streamlit as st
 import utils.ui as ui
 
-lift, center, right =st.columns(3)
+left, center, right =st.columns(3)
 with center:
     st.title("Louka Abed")
-    
+
 lift, center, right =st.columns(3)
 with left:
     st.write("Malden, MA 02148")
