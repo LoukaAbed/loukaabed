@@ -14,8 +14,8 @@ st.write("**Employment Status:** US Citizen | Fully authorized for US employment
 
 st.divider()
 st.markdown("### Education")
-st.markdown("**MS in Data Science** | Eastern University | Expected Graduation: May 2027 (In Progress)")
-st.write("""> **Coursework:** Principles of Python Programming, Data and Database Management with SQL.""")
+st.markdown("**MS in Data Science | Eastern University | Expected Graduation: May 2027 (In Progress)**")
+st.write("""> -**Coursework:** Principles of Python Programming, Data and Database Management with SQL.""")
 
 st.markdown("**Bachelor of Medicine, Bachelor of Surgery (M.B. B.Ch.) (MD equivalent in the US) | Cairo University Faculty of Medicine **")
 st.write("> **Clinical Clerkship** at Columbia University College of Physicians and Surgeons, New York. Routinely used Electronic Health Record (EHR). Passed US Medical Licensing Exam step 1 (USMLE step 1).")
