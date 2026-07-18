@@ -86,8 +86,8 @@ def send(name, email, subject, body, attached_files=None):
 def message():
     maxfile_size(max_size=25)
     # Message Form
-    st.markdown("### ✉️ Professional Inquiries")
-    st.markdown("Please use the form below for recruitment inquiries or project collaborations. You may also contact me directly via email at [contact@loukaabed.com](mailto:contact@loukaabed.com).")
+    st.markdown("### Professional Inquiries")
+    st.markdown("Please use the form below for recruitment inquiries or project collaborations. You may also contact me directly at [contact@loukaabed.com](mailto:contact@loukaabed.com?subject=Professional%20Inquiry)")
     with st.form("contact_form", clear_on_submit=True):
         left, right = st.columns(2)
         with left:
@@ -97,7 +97,7 @@ def message():
             email = st.text_input("Return Email Address", placeholder="name@organization.com")
         message_body = st.text_area("Message", placeholder="Please type your message here...")
         uploaded_files = st.file_uploader("Upload Attachments With Max Total Size: 25MB", accept_multiple_files=True)
-        submit = st.form_submit_button("Send Message")
+        submit = st.form_submit_button("✉️ Send Message")
         if submit:
             if not name or not email or not message_body:
                 st.warning("Please complete all fields before sending your message")
