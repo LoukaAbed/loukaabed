@@ -4,72 +4,98 @@ import utils.ui as ui
 left, center, right =st.columns(3)
 with center:
     st.title("Louka Abed")
+st.markdown("Malden, MA 02148 | 617-942-1441 | [contact@loukaabed.com](mailto:contact@loukaabed.com)")
 st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D")
 st.write("""International Medical Graduate (MD) combining clinical and biochemistry domain expertise with MS in Data Science and Mathematics foundations to validate, 
 audit, model, and extract AI insights—accelerating novel drug discovery and building predictive translational medicine pipelines through a systems approach 
 that integrates complex healthcare data streams, high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.""")
 
-
 st.write("**Employment Status:** US Citizen | Fully authorized for US employment with no sponsorship required.")
 
 st.divider()
-st.markdown("### Technical & Mathematical Skills")
+
+st.markdown("### Data Science Specialization & Technical Skills")
 st.write("""
-* **Programming & Scripting:** Python (Pandas/Core syntax), SQL database querying, R, Java, MATLAB, Microsoft Excel.
-* **Quantitative Analytics Core:** Linear Algebra, Calculus, Differential Equations, Probability & Statistical concepts.
-* **Enterprise Platforms & Systems:** Electronic Health Records (EHR), SAP, Syncade, Sequencher, Automated Liquid-Handling Robotics.
+* **Core Programming:** Python, R, SQL.
+* **Quantitative Coursework:** Calculus, linear algebra, differential equations, mathematical biology, probability & Statistics.
+* **Current Degree Track:** **MS in Data Science** | Eastern University | Expected Graduation: May 2027 (In Progress)
+  * *Completed Foundations:* Principles of Python Programming, Data and Database Management with SQL.
 """)
 
 st.divider()
 
-st.markdown("### Education")
+st.markdown("### Systems, Data, & Computational Experience")
 
-st.markdown("**MS in Data Science** | Eastern University | Expected Graduation: May 2027 (In Progress)")
-st.write("* *Completed Foundations:* Principles of Python Programming, Data and Database Management with SQL.")
+st.markdown("**Manufacturing Associate** | GMP Manufacturing - Moderna | Burlington, MA | 04/2023 – 03/2025")
+st.write("""
+* Working in the personalized cancer vaccine (PCV) unit.
+* Routinely used enterprise software and databases: **SAP, Syncade, Sequencher**, SOP, GMP, aseptic technique, Biosafety Cabinet (BSC), chromatography.
+""")
 
-st.markdown("**Bachelor of Medicine, Bachelor of Surgery (M.B. B.Ch. / MD Equivalent)** | Cairo University Faculty of Medicine")
-st.write("* *Clinical Clerkships:* Columbia University College of Physicians and Surgeons (NY). Utilized electronic clinical databases; passed USMLE Step 1.")
+st.markdown("**Research Associate (Computational R&D)** | Columbia University Medical Center - Systems Biology | NY")
+st.write("""
+* **Predicting computationally cellular response (i.e., Gene Expression) to drug combinations (inspired by Connectivity Map).**
+* Designed experiment, wrote protocol, ordered lab supplies & drugs, initiated cell culture, propagated, maintained & cryopreserved stock of mammalian immortal cells (MCF7), cell counting, aseptic/sterile technique.
+* In vitro drug testing, determined the optimum drug dosage for maximum mRNA cellular response, isolation & quantification mRNA via spectrophotometry, sent mRNA for gene sequencing.
+""")
 
-st.markdown("**BS in Biochemistry (Mathematics Minor)** | University of Massachusetts, Boston")
-st.write("* *Honors & Awards:* Summa Cum Laude, GPA: 3.86/4.00, Emil Fischer Book Award.")
+st.markdown("**Medical Data Analyst** | Innodata – Synodex Division | Hackensack, NJ")
+st.write("""
+* Literature review to create up-to-date evidence-based medical risk elements in order to **accurately predict the real liability in disability & life insurance**.
+* **Advanced skills in Excel:** VB macros, searching, sorting, matching, text extraction/editing datasets.
+""")
 
 st.divider()
 
-st.markdown("### Systems, Data, & Clinical Operations Experience")
+st.markdown("### 🩺 Clinical Operations & Medical Registries")
 
-st.markdown("**Technical Operations Associate (Personalized Vaccine Unit)** | Moderna | 04/2023 – 03/2025")
+st.markdown("**Family Medicine Resident Physician** | Ministry of Health | Port Said, Egypt | 03/2021 – 02/2023")
 st.write("""
-* Managed digital workflows and production metrics within automated GMP oncology manufacturing pipelines.
-* Utilized enterprise software frameworks including SAP, Syncade, and Sequencher to maintain strict quality control and data integrity across technical runs.
+* Rotation through primary care clinic, pediatrics, internal Medicine, and emergency medicine. **Utilized Electronic Health Record (EHR) databases natively.**
 """)
 
-st.markdown("**Clinical Operations & Case Management** | Ministry of Health / Teaching Hospitals | 03/2019 – 02/2023")
+st.markdown("**Medical Internship** | Cairo University Teaching Hospitals | Cairo, Egypt | 03/2019 – 04/2020")
 st.write("""
-* Maintained, audited, and updated diagnostic registries and patient health databases across primary care and emergency departments.
-* Ensured data compliance with healthcare protocols while documenting multi-department clinical cases.
+* One year of clinical clerkships required to be a licensed physician in Egypt.
 """)
 
-st.markdown("**Medical Data Analyst** | Innodata – Synodex Division | 11/2015 – 03/2016")
-st.write("""
-* Conducted systematic medical literature reviews to isolate, track, and document evidence-based risk metrics.
-* Applied advanced Excel formatting and text sorting arrays to process high-volume liability assessment data.
-""")
+st.divider()
 
-st.markdown("**Technical Research Associate** | Columbia University Medical Center | 06/2012 – 12/2013")
-st.write("""
-* Executed high-precision laboratory assays and extracted mRNA targets for genetic sequencing pipelines within the Systems Biology and Nephrology divisions.
-* Leveraged digital genomic registries including the UCSC Genome Browser and dbSNP data frameworks to validate structural variations.
-""")
+st.markdown("### 🔬 Laboratory Research Foundations")
 
-st.markdown("**Process Development Associate** | Broad Institute | 01/2011 – 04/2011")
-st.write("""
-* Programmed and operated Multiprobe automated liquid-handling robotics for high-throughput microbial genomic sequencing data generation workflows.
-""")
+st.markdown("**Research Associate (Summer)** | Columbia University Medical Center, Nephrology Division | NY")
+st.write("* Role of Copy-Number Variations (CNVs) in children. Used Real-Time qPCR (qRT-PCR) to validate & quantify rare CNVs. Used online data resources extensively: **UCSC genome browser, dbSNP**, Primer3, primer design.")
+
+st.markdown("**Process Development Associate (Contract)** | Broad Institute | Cambridge, MA")
+st.write("* Sequencing genomes using Primer Walking. **Operating Multiprobe robot for automatic liquid reagents dispensing (High Throughput Technique)**, 96-wells, barcode plate readers, thermal plate sealers.")
+
+st.markdown("**Research Assistant (Summer)** | Beth Israel Deaconess Medical Center - Matrix Biology | Boston, MA")
+st.write("* Carcinoma-associated fibroblasts study. Skills in tissue genotyping, tumor cell culture (4T1), primary culture, embedding, microtome sectioning, IHC & IF staining, H&E staining.")
+
+st.markdown("**Research Assistant (Work-study)** | University of Massachusetts, Department of Biology | Boston, MA")
+st.write("* Cell signaling study in-vivo Drosophila using RNAi vectors. DNA cloning/subcloning, restriction enzymes, ligation, competent E. Coli, transformations, agar plating, PCR screening, minipreps, spectrophotometry.")
+
+st.divider()
+
+st.markdown("### Academic Background & Credentials")
+
+st.markdown("**Cairo University Faculty of Medicine, Cairo, Egypt**")
+st.write("* Bachelor of Medicine, Bachelor of Surgery (M.B. B.Ch.) — *Equivalent to MD degree in the United States. Certified General Medical Practitioner.*")
+st.write("* Clinical Clerkship at Columbia University College of Physicians and Surgeons, New York. Routinely used Electronic Health Record (EHR). Passed US Medical Licensing Exam step 1 (USMLE step 1).")
+
+st.markdown("**University of Massachusetts (UMass), Boston**")
+st.write("* Bachelor of Science in Biochemistry & Mathematics Minor — *Summa Cum Laude graduate with Honors in Biochemistry, top of my class, GPA 3.86/4.00.*")
+
+st.markdown("**Accomplishments & Awards:**")
+st.write("• Emil Fischer Book Award, Honors, and Distinction in Biochemistry • Dean's List • Tutor Certificate of Recognition • Classroom Leadership Award • Ronald E. McNair Scholar")
+
+st.markdown("**Certifications:**")
+st.write("• Certified General Medical Practitioner (Physician/MD) in Egypt • Certified in Immediate Life Support (ILS) / Basic Life Support (BLS) (European Resuscitation Council)")
 
 st.divider()
 
 st.markdown("### Publications")
-st.write('Kyriakakis, P., Tipping, M., **Abed, L.**, Veraksa, A. "Tandem affinity purification in Drosophila: The advantages of the GS-TAP system." *Fly*, 2:229-235.')
+st.write('Phillip Kyriakakis; Marla Tipping; ***Louka Abed**; Alexey Veraksa. "Tandem affinity purification in Drosophila: The advantages of the GS-TAP system." *Fly* Vol: 2:229-235. **(*Published under former name*)**')
 
 st.divider()
 
