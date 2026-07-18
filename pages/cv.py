@@ -22,8 +22,8 @@ st.info("Employment Status:** US Citizen | Fully authorized for US employment wi
 st.divider()
 
 st.header("Education", divider="green", anchor=False)
-st.write("MS in Data Science | Eastern University")
-st.write("    - **Coursework:**", "Python, SQL")
+st.write("**MS in Data Science** | Eastern University")
+st.write("    **- Coursework:**", "Python, SQL")
 
 
 
