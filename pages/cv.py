@@ -22,9 +22,15 @@ st.info("Employment Status:** US Citizen | Fully authorized for US employment wi
 st.divider()
 
 st.header("Education", divider="green", anchor=False)
+st.write("""
+* **MS in Data Science** | Eastern University
+    - **Completed Coursework:** Principles of Python Programming...
+""")
+
 st.html("<h3><b>Bachelor of Medicine and Surgery (M.B. B.Ch.)</b></h3>") 
 st.html("<h4><b>Cairo University Faculty of Medicine</b>Equivalent to MD in the US</b></h4>")
 st.html("<blockquote><b>Clerkship:</b> Emergency Medicine, ENT, Forensic Medicine</blockquote>")
+
 
 st.write("Doctor of Medicine")
 st.write("Columbia University College of Physicians and Surgeons, New York")
