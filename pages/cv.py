@@ -4,8 +4,13 @@ import utils.ui as ui
 left, center, right =st.columns(3)
 with center:
     st.title("Louka Abed")
-    st.write("Malden, MA 02148 | Phone: 617-942-1441 | E-Mail: louka.abed@yahoo.com")
-st.header("Clinical Data Scientist | AI Translational Medicine & Pharma R&D", divider="green", anchor=False)
+with left:
+    st.write("Malden, MA 02148")
+with center:
+    st.write("Phone: 617-942-1441")
+with right:
+    st.write("E-Mail: contact@loukaabed.com")
+st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D", divider="green", anchor=False)
 st.write("""International Medical Graduate (MD) combining clinical and biochemistry domain expertise with MS in Data Science and Mathematics foundations to validate, 
 audit, model, and extract AI insights—accelerating novel drug discovery and building predictive translational medicine pipelines through a systems approach 
 that integrates complex healthcare data streams, high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.""")
