@@ -26,7 +26,7 @@ st.header("Education", divider="green", anchor=False)
 st.write("Bachelor of Medicine, Bachelor of Surgery (M.B. B.Ch.)")
 st.write("Cairo University Faculty of Medicine, Cairo, Egypt")
 st.html("<h5><b>Bachelor of Medicine and Surgery (M.B. B.Ch.)</b> — Cairo University Faculty of Medicine</h5>") 
-st.html("<h4><b>Bachelor of Medicine and Surgery (M.B. B.Ch.)</b> — Cairo University Faculty of Medicine</h4>") 
+st.html("<h3><b>Bachelor of Medicine and Surgery (M.B. B.Ch.)</b> — Cairo University Faculty of Medicine</h3>") 
 st.write("Bachelor of Medicine Bachelor of Surgery is equivalent to MD degree in the United States.")
 
 st.write("Doctor of Medicine")
