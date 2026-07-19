@@ -3,14 +3,14 @@ import utils.ui as ui
 
 st.title("Louka Abed")
 st.write("Address: Malden, MA 02148 | Phone: 617-942-1441 | E-Mail: louka.abed@yahoo.com")
-st.write("LinkedIn Profile: https://linkedin.com | GitHub: https://github.com")
-st.write("Employment Status: US Citizen | Fully authorized for US employment with no sponsorship required.")
 
 st.divider()
 
-st.subheader("Summary", divider="green", anchor=False)
-st.write("**Research Scientist & Investigator Portfolio** | Executive Background Overview")
-st.write("""> Research Associate, Research Scientist, Investigator, Clinical Research: US citizen, International Medical Graduate (MD). I spent the last several years practicing medicine as a licensed physician in Egypt. I have a Bachelor of Science in Biochemistry, graduated summa cum laude with Honor from UMass Boston. Looking for a scientist position in pharmaceutical research & development. I have over 3 years research experience in biotech, most recent in mRNA-based therapeutic with skills in molecular biology including DNA cloning & RNAi vector construction, aseptic techniques, protein assays, data analysis & programming skills, experimental design, & cell culture, cell-based bioassays, in vitro drug testing, in vivo oncology animal models, medical literature review, clinical study, problem-solving/critical thinking.""")
+st.subheader("Professional Summary", divider="green", anchor=False)
+st.write("""International Medical Graduate (MD) combining clinical and biochemistry domain expertise with MS in Data Science and Mathematics foundations to validate, 
+audit, model, and extract AI insights—accelerating novel drug discovery and building predictive translational medicine pipelines through a systems approach 
+that integrates complex healthcare data streams, high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.""")
+st.info("Employment Status: US Citizen | Fully authorized for US employment with no sponsorship required.")
 
 st.divider()
 
