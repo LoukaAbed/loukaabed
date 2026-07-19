@@ -2,26 +2,62 @@ import streamlit as st
 import utils.ui as ui
 
 st.title("Louka Abed")
-st.write("Malden, MA 02148 | 617-942-1441 | contact@loukaabed.com")
+st.write("Address: Malden, MA 02148 | Phone: 617-942-1441 | E-Mail: louka.abed@yahoo.com")
+st.write("LinkedIn Profile: https://linkedin.com | GitHub: https://github.com")
+st.write("Employment Status: US Citizen | Fully authorized for US employment with no sponsorship required.")
 
-st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D", divider="green", anchor=False)
+st.divider()
 
-st.write("""International Medical Graduate (MD) combining clinical and biochemistry domain expertise with MS in Data Science and Mathematics foundations to validate, 
-audit, model, and extract AI insights—accelerating novel drug discovery and building predictive translational medicine pipelines through a systems approach 
-that integrates complex healthcare data streams, high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.""")
+st.subheader("Summary", divider="green", anchor=False)
+st.write("**Research Scientist & Investigator Portfolio** | Executive Background Overview")
+st.write("""> Research Associate, Research Scientist, Investigator, Clinical Research: US citizen, International Medical Graduate (MD). I spent the last several years practicing medicine as a licensed physician in Egypt. I have a Bachelor of Science in Biochemistry, graduated summa cum laude with Honor from UMass Boston. Looking for a scientist position in pharmaceutical research & development. I have over 3 years research experience in biotech, most recent in mRNA-based therapeutic with skills in molecular biology including DNA cloning & RNAi vector construction, aseptic techniques, protein assays, data analysis & programming skills, experimental design, & cell culture, cell-based bioassays, in vitro drug testing, in vivo oncology animal models, medical literature review, clinical study, problem-solving/critical thinking.""")
 
-st.info("Employment Status: US Citizen | Fully authorized for US employment with no sponsorship required.")
+st.divider()
+
+st.subheader("Interactive Data Science Showcases", divider="green", anchor=False)
+
+st.write("**Natural Language Processing (NLP) for EHR Phenotyping** | Specialized Project")
+st.write("""> Status: To Be Completed. Algorithmic pipeline mining unstructured electronic health records and clinical trial documents to automate patient cohort identification and extract medical entities.""")
+
+st.write("**Synthetic Clinical Trial Patient Survival Simulator** | Mathematical Project")
+st.write("""> Status: To Be Completed. Interactive computational platform applying survival analysis and probability concepts to model patient risk curves over longitudinal healthcare streams.""")
+
+st.write("**High-Throughput Assay Screening Analytics Dashboard** | Translational R&D Project")
+st.write("""> Status: To Be Completed. Non-linear curve fitting dashboard calculating dose-response metrics to isolate viable small-molecule drug candidates, inspired by Connectivity Map architectures.""")
+
+st.divider()
+
+st.subheader("Advanced Data Science Specializations", divider="green", anchor=False)
+
+st.write("**Mathematics for Machine Learning and Data Science** | DeepLearning.AI Track")
+st.write("""> Status: In Progress. Focused on Linear Algebra, Calculus, and Probability concepts optimized for predictive modeling algorithms.""")
+
+st.write("**Databricks Certified Machine Learning Associate** | Enterprise Cloud Platforms")
+st.write("""> Status: In Progress. Preparing for large-scale enterprise cloud data pipeline deployment, Apache Spark optimization, and MLflow lifecycle tracking.""")
+
+st.write("**Data Science with Real World Data (RWD) in Pharma** | Industry Domain Specialization")
+st.write("""> Status: In Progress. Specialized competency tracking clinical data standards, tokenization frameworks, and regulatory RWE protocols.""")
+
+st.divider()
 
 st.subheader("Education", divider="green", anchor=False)
 
-st.write("**MS in Data Science** | Eastern University | Expected Graduation: May 2027")
-st.write("""> Coursework: Python, SQL.""")
+st.write("**MS in Data Science** | Eastern University | Expected Graduation: May 2027 (In Progress)")
+st.write("""> Coursework: Principles of Python Programming, Data and Database Management with SQL.""")
 
 st.write("**Bachelor of Medicine, Bachelor of Surgery (M.B. B.Ch.)** | Cairo University Faculty of Medicine, Cairo, Egypt")
-st.write("""> Bachelor of Medicine Bachelor of Surgery is equivalent to MD degree in the United States. Clerkship at Columbia University College of Physicians and Surgeons: medicine, pediatrics, obstetrics & gynecology, psychiatry, surgery, routinely used Electronic Health Record (EHR). Passed US Medical Licensing Exam (USMLE) step 1.""")
+st.write("""> Bachelor of Medicine Bachelor of Surgery is equivalent to MD degree in the United States. Certified General Medical Practitioner. Clerkship at Columbia University College of Physicians and Surgeons: medicine, pediatrics, obstetrics & gynecology, psychiatry, surgery, routinely used Electronic Health Record (EHR). Passed US Medical Licensing Exam (USMLE) step 1.""")
 
 st.write("**Bachelor of Science in Biochemistry & Mathematics Minor** | University of Massachusetts (UMass), Boston")
 st.write("""> Summa Cum Laude graduate with Honors in Biochemistry, top of my class, GPA 3.86/4.00.""")
+
+st.divider()
+
+st.subheader("Data Science Skills", divider="green", anchor=False)
+st.write("**Core Programming & Quantitative Analytics Toolkit**")
+st.write("""> Programming: Python, R, SQL, Java, MATLAB, Microsoft Excel Macros (VBA). Coursework: calculus, linear algebra, differential equations, mathematical biology, probability & Statistics.""")
+
+st.divider()
 
 st.subheader("Work History", divider="green", anchor=False)
 
@@ -46,17 +82,23 @@ st.write("""> Role of Copy-Number Variations (CNVs) in vesicoureteric reflux (VU
 st.write("**Process Development Associate (Contract)** | Broad Institute | Cambridge, MA")
 st.write("""> Sequencing gaps and diﬀicult-to-sequence regions in genomes of diﬀerent microorganisms using Primer Walking. Operating Multiprobe robot for automatic liquid reagents dispensing (High Throughput Technique). Routinely used 96-wells, made labels, barcode plate reader, thermal plate sealer.""")
 
-st.subheader("Data Science Skills", divider="green", anchor=False)
-st.write("""> Programming: Python, Java, R, SQL. Mathematic: calculus, linear algebra, differential equations, mathematical biology, probability & Statistics.""")
+st.divider()
 
 st.subheader("Accomplishments", divider="green", anchor=False)
-st.write("""> Emil Fischer Book Award, Honors in Biochemistry, and Distinction in Biochemistry: UMass Boston. Tutor Certificate of Recognition: Academic Support: UMass Boston. Ronald's McNair Post Baccalaureate Achievement Program Scholar.""")
+st.write("**Academic Recognitions & Professional Fellowships**")
+st.write("""> Emil Fischer Book Award, Honors in Biochemistry, and Distinction in Biochemistry: UMass Boston. Dean List: UMass Boston. Tutor Certificate of Recognition: Academic Support UMass Boston. Classroom Leadership Award: UMass Boston Honors Program. Ronald's McNair Post Baccalaureate Achievement Program Scholar.""")
+
+st.divider()
 
 st.subheader("Certifications", divider="green", anchor=False)
-st.write("""> Certified General Medical Practitioner (Physician/MD) — Ministry of Health & Population, Egypt (06/2020). Certified in Immediate Life Support (ILS) / Basic Life Support (BLS) — European Resuscitation Council.""")
+st.write("**Professional Licensure**")
+st.write("""> Certified General Medical Practitioner (Physician/MD) — Ministry of Health & Population, Egypt (06/2020).""")
+
+st.divider()
 
 st.subheader("Publications", divider="green", anchor=False)
-st.write("""> Phillip Kyriakakis; Marla Tipping; Louka Abed; Alexey Veraksa. "Tandem affinity purification in Drosophila: The advantages of the GS-TAP system." Fly Vol: 2:229-235. (Published under former name)""")
+st.write("**Peer-Reviewed Scientific Literature**")
+st.write('• Phillip Kyriakakis; Marla Tipping; Louka Abed; Alexey Veraksa. "Tandem affinity purification in Drosophila: The advantages of the GS-TAP system." *Fly* Vol: 2:229-235. *(Published under former name)*')
 
 st.divider()
 
