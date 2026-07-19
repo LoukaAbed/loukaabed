@@ -1,39 +1,27 @@
 import streamlit as st
 import utils.ui as ui
 
-left, center, right =st.columns(3)
-with center:
-    st.title("Louka Abed")
+st.title("Louka Abed")
+st.write("Malden, MA 02148 | 617-942-1441 | contact@loukaabed.com")
 
-left, center, right =st.columns(3)
-with left:
-    st.write("Malden, MA 02148")
-with center:
-    st.write("Phone: 617-942-1441")
-with right:
-    st.write("E-Mail: contact@loukaabed.com")
 st.subheader("Clinical Data Scientist | AI Translational Medicine & Pharma R&D", divider="green", anchor=False)
+
 st.write("""International Medical Graduate (MD) combining clinical and biochemistry domain expertise with MS in Data Science and Mathematics foundations to validate, 
 audit, model, and extract AI insights—accelerating novel drug discovery and building predictive translational medicine pipelines through a systems approach 
 that integrates complex healthcare data streams, high-throughput genomic and proteomic registries, and heterogeneous multiomics architectures.""")
 
-st.info("Employment Status:** US Citizen | Fully authorized for US employment with no sponsorship required.")
-
+st.info("Employment Status: US Citizen | Fully authorized for US employment with no sponsorship required.")
 
 st.subheader("Education", divider="green", anchor=False)
 
-st.write("**MS in Data Science** | Eastern University Expected Graduation May 2027")
+st.write("**MS in Data Science** | Eastern University | Expected Graduation: May 2027")
 st.write("""> Coursework: Python, SQL.""")
 
 st.write("**Bachelor of Medicine, Bachelor of Surgery (M.B. B.Ch.)** | Cairo University Faculty of Medicine, Cairo, Egypt")
-st.write("""> Bachelor of Medicine Bachelor of Surgery is equivalent to MD degree in the United States.""")
-st.write("""> Clerkship at Columbia University College of Physicians and Surgeons: medicine, pediatrics, obstetrics & gynecology, psychiatry, surgery, routinely used Electronic Health Record (EHR).""")
-st.write("""> Passed US Medical Licensing Exam (USMLE) step 1.""")
-
+st.write("""> Bachelor of Medicine Bachelor of Surgery is equivalent to MD degree in the United States. Clerkship at Columbia University College of Physicians and Surgeons: medicine, pediatrics, obstetrics & gynecology, psychiatry, surgery, routinely used Electronic Health Record (EHR). Passed US Medical Licensing Exam (USMLE) step 1.""")
 
 st.write("**Bachelor of Science in Biochemistry & Mathematics Minor** | University of Massachusetts (UMass), Boston")
-st.write("""> Summa Cum Laude graduate with Honors in Biochemistry, top of my class, GPA 3.86/4.00""")
-
+st.write("""> Summa Cum Laude graduate with Honors in Biochemistry, top of my class, GPA 3.86/4.00.""")
 
 st.subheader("Work History", divider="green", anchor=False)
 
@@ -58,23 +46,17 @@ st.write("""> Role of Copy-Number Variations (CNVs) in vesicoureteric reflux (VU
 st.write("**Process Development Associate (Contract)** | Broad Institute | Cambridge, MA")
 st.write("""> Sequencing gaps and diﬀicult-to-sequence regions in genomes of diﬀerent microorganisms using Primer Walking. Operating Multiprobe robot for automatic liquid reagents dispensing (High Throughput Technique). Routinely used 96-wells, made labels, barcode plate reader, thermal plate sealer.""")
 
-
 st.subheader("Data Science Skills", divider="green", anchor=False)
-st.write("""> Programming: Python, Java, R, SQL.""")
-st.write("""> Mathematic: calculus, linear algebra, differential equations, mathematical biology, probability & Statistics.""")
-
+st.write("""> Programming: Python, Java, R, SQL. Mathematic: calculus, linear algebra, differential equations, mathematical biology, probability & Statistics.""")
 
 st.subheader("Accomplishments", divider="green", anchor=False)
-st.write("""> Emil Fischer Book Award, Honors in Biochemistry, and Distinction in Biochemistry: UMass Boston""")
-st.write("""> Tutor Certificate of Recognition: Academic Support: UMass Boston.""")
-st.write("""> Ronald's McNair Post Baccalaureate Achievement Program Scholar.""")
+st.write("""> Emil Fischer Book Award, Honors in Biochemistry, and Distinction in Biochemistry: UMass Boston. Tutor Certificate of Recognition: Academic Support: UMass Boston. Ronald's McNair Post Baccalaureate Achievement Program Scholar.""")
 
 st.subheader("Certifications", divider="green", anchor=False)
-st.write("""> Certified General Medical Practitioner (Physician/MD) — Ministry of Health & Population, Egypt (06/2020).""")
-st.write("""> Certified in Immediate Life Support (ILS) / Basic Life Support (BLS) — European Resuscitation Council.""")
+st.write("""> Certified General Medical Practitioner (Physician/MD) — Ministry of Health & Population, Egypt (06/2020). Certified in Immediate Life Support (ILS) / Basic Life Support (BLS) — European Resuscitation Council.""")
 
 st.subheader("Publications", divider="green", anchor=False)
-st.write("""> Phillip Kyriakakis; Marla Tipping; Louka Abed; Alexey Veraksa. "Tandem affinity purification in Drosophila: The advantages of the GS-TAP system." Fly Vol: 2:229-235.""")
+st.write("""> Phillip Kyriakakis; Marla Tipping; Louka Abed; Alexey Veraksa. "Tandem affinity purification in Drosophila: The advantages of the GS-TAP system." Fly Vol: 2:229-235. (Published under former name)""")
 
 st.divider()
 
